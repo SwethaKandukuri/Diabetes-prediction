@@ -5,12 +5,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn import svm
 from sklearn.metrics import accuracy_score
-
+import os
 # Initialize Flask app
 app = Flask(__name__)
 
 # Load the dataset
-diabetes_dataset = pd.read_csv("diabetes.csv")
+csv_path = os.path.join(os.path.dirname(__file__), 'diabetes.csv')
+diabetes_dataset = pd.read_csv(csv_path)
 
 # Data Preparation
 X = diabetes_dataset.drop(columns='Outcome', axis=1)
